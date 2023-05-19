@@ -4,20 +4,26 @@
 #include <SDL/SDL_image.h>
 
 
+
 typedef struct {
+   
     SDL_Surface* image;
-    SDL_Rect position ; 
-    int dx;
-    int dy;
-    int jumping;
+  SDL_Rect position ; 
+    int isJumping;
+    int isBottom ; 
+int velocity ; 
+int gravity ; 
 } Character;
 
-void character_init(Character* character, const char* image_path, int x, int y);
+
+void character_init(SDL_Surface *screen_surface,Character* character);
 void move_right(Character* character);
 void afficher_perso(SDL_Surface* screen_surface,Character character);
 void move_left(Character* character);
 void character_jump(Character* character);
+void update_pos(Character* character) ; 
+void animerperso(Character* character,SDL_Surface *screen,int  currentDirection,int animationFlip);
 
-#endif 
+#endif // PERSONNE_H_INCLUDED
 
 
